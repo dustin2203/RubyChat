@@ -1,20 +1,7 @@
-#require 'win32/api'
-#include Win32
-
-require "Win32API"
-
-title = "My Appli"
-text = "Hello World"
-
-dialog = Win32API.new('user32', 'MessageBox', "LPPL", "I")
-result = dialog.call(0, text, title, 1)
-
-case result
-when 1
-      puts "clicked OK"
-when 2
-      puts "clicked canceled"
-else
-  puts "clicked something else"
-end
+require_relative './src/web_reader/database'
+puts 'Welcome!'
+puts 'available_messages:'
+dh1 = DatabaseHandler.new("138.201.35.194", "cu-wi_rubybot", "gpqK3~21CH", "cu-wickertdustin01_RubyChat")
+dh1.fetch_data("messages", "*")
+dh1.print_data
 

@@ -18,8 +18,8 @@ class DatabaseHandler
 
   # Method to fetch specific data from a table
   # Parameters: row(STRING), data_mass(STRING), where_option(STRING(=> group='githubbers' ))
-  def fetch_data(row, data_mass='*', where_option='')
-    @results = client.query("SELECT #{data_mass} FROM #{row} WHERE #{where_option}")
+  def fetch_data(row, data_mass='*')
+    @results = @client.query("SELECT #{data_mass} FROM #{row}")
     return true
   end
 
@@ -34,5 +34,3 @@ class DatabaseHandler
   end
 
 end
-
-DatabaseHandler.new
